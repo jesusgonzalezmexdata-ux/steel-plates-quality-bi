@@ -94,9 +94,22 @@ streamlit run streamlit_app.py
 
 Para el tablero en Power BI, sigue `docs/construir_en_power_bi.md`.
 
+## Power BI
+
+- Proyecto PBIP versionado en [`powerbi/project/`](powerbi/project/).
+- Artefacto ejecutable PBIX en [`powerbi/artifacts/`](powerbi/artifacts/): [`steel-plates-quality-bi.pbix`](powerbi/artifacts/steel-plates-quality-bi.pbix).
+- El PBIX se gestiona con Git LFS. Para descargar sus bytes después de clonar: `git lfs pull`.
+
+```text
+POWER BI ARTIFACTS: AVAILABLE
+POWER BI VALIDATION: PENDING
+```
+
+El parámetro `RutaCSV` del PBIP conserva la ruta absoluta local del equipo donde se guardó. Antes de actualizar los datos en otro equipo, ajusta ese parámetro en Power BI Desktop para apuntar a `data/raw/steel_plates_faults.csv`.
+
 ## Limitaciones
 
-- **Sin Power BI Desktop en este entorno.** El DAX y el M no se ejecutaron en Power BI; se validaron contra su réplica en Python y SQL y con revisiones de sintaxis. El .pbix no está incluido. Los valores esperados para comprobarlo están en la guía.
+- **Validación en Power BI Desktop pendiente.** Los artefactos PBIP y PBIX están disponibles. La ejecución y comprobación de los gates G1–G5 de [`docs/construir_en_power_bi.md`](docs/construir_en_power_bi.md) sigue pendiente de evidencia; disponer de los archivos no acredita la validación analítica.
 - **Sin tiempo, máquina ni turno.** No hay carta de control temporal ni % de scrap. En `measures.dax` queda comentado el patrón de rango móvil para cuando existan fechas.
 - **Confusión entre espesor y tipo de defecto.** El 99 % del rayón en K cae en espesor 40.
 - **Costos, límite de especificación y umbrales de acción supuestos.** Cámbialos con los de tu planta; el orden del Pareto depende de ellos.
