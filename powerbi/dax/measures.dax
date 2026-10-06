@@ -58,7 +58,7 @@ SUMX ( VALUES ( Dim_Acero[espesor] ), [Fuera de Limites] )
 
 // ---------- 4. Capacidad (unilateral superior) ----------
 // El defecto debe quedar por debajo de USL px². Se trabaja en log10 porque el área es muy asimétrica.
-// Param_Especificacion es una tabla de una fila (GENERATESERIES o "Introducir datos").
+// Param_Especificacion es una tabla desconectada de una fila.
 USL px2 = SELECTEDVALUE ( Param_Especificacion[USL_px2], 500 )
 
 Cpk =
@@ -67,7 +67,7 @@ RETURN
     IF ( [n Grupo] > 1 && _Sigma > 0,
         DIVIDE ( LOG10 ( [USL px2] ) - AVERAGE ( Fact_Defecto[log_area] ), 3 * _Sigma ) )
 
-// Semáforo: verde >= 1.33, amarillo >= 1.00, rojo < 1.00 (úsese en Formato condicional > Valor de campo)
+// Semáforo: verde >= 1.33, amarillo >= 1.00, rojo < 1.00.
 Semaforo Cpk Color =
 SWITCH ( TRUE (),
     ISBLANK ( [Cpk] ), "#9AA0A6",
@@ -83,8 +83,16 @@ SWITCH ( TRUE (),
     "No capaz" )
 
 // ---------- 4b. Decisión (no paramétrica y sin supuesto de normalidad) ----------
+// La variable local evita usar una medida directamente dentro de una expresión booleana de CALCULATE.
 % Fuera de USL =
-DIVIDE ( CALCULATE ( [Defectos], Fact_Defecto[area_px2] > [USL px2] ), [Defectos] )
+VAR _USL = [USL px2]
+VAR _Fuera =
+    CALCULATE (
+        [Defectos],
+        FILTER ( Fact_Defecto, Fact_Defecto[area_px2] > _USL )
+    )
+RETURN
+    DIVIDE ( _Fuera, [Defectos] )
 
 // Umbrales de gestión (supuestos): COPQ >= 20 %, fuera de USL >= 10 %
 Accion Recomendada =
