@@ -105,7 +105,7 @@ POWER BI ARTIFACTS: AVAILABLE
 POWER BI VALIDATION: PENDING
 ```
 
-El parámetro `RutaCSV` del PBIP conserva la ruta absoluta local del equipo donde se guardó. Antes de actualizar los datos en otro equipo, ajusta ese parámetro en Power BI Desktop para apuntar a `data/raw/steel_plates_faults.csv`.
+El parámetro `RutaCSV` del PBIP apunta a la URL pública del CSV en este repositorio, así que el proyecto se actualiza en cualquier equipo con conexión. Para trabajar sin conexión, cámbialo en Power BI Desktop a la ruta local de `data/raw/steel_plates_faults.csv`.
 
 ## Limitaciones
 
