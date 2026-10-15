@@ -119,4 +119,4 @@ El parámetro `RutaCSV` del PBIP apunta a la URL pública del CSV en este reposi
 
 **Jesús R. L. González**: Analista y Científico de Datos · Operaciones y Calidad en manufactura · [LinkedIn](https://www.linkedin.com/in/jesus-r-l-gonzalez)
 
-*Datos: Steel Plates Faults, UCI Machine Learning Repository (Semeion). Revisa su licencia y cita en la página del dataset.*
+Código bajo [MIT](LICENSE). *Datos: Steel Plates Faults, UCI Machine Learning Repository (Semeion). Revisa su licencia y cita en la página del dataset.*
