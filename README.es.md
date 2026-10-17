@@ -2,6 +2,8 @@
 
 *[English](README.md) · Español*
 
+> **Este proyecto ahora vive en [steel-plates-quality-mlops](https://github.com/jesusgonzalezmexdata-ux/steel-plates-quality-mlops)**, que contiene esta capa de Power BI y Streamlit (`qbi/`, `powerbi/`, `etl/`) junto con el modelo, su evidencia y el MVP de triaje de revisión humana. Este repositorio se conserva solo como referencia; el trabajo nuevo va allá.
+
 **Un sistema de decisión para calidad: qué defectos contener, a cuáles buscarles causa raíz y qué tan confiable es cada conclusión.**
 
 Power BI (DAX, Power Query M) · Python (pandas) · SQL (DuckDB) · Streamlit · control estadístico · COPQ · ISO 9001
